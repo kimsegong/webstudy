@@ -18,10 +18,17 @@
       3) number   : 숫자
       4) email    : 이메일
       5) file     : 파일 첨부
-    4. 주요 속성
-         Name :      Value
-      1) type : 입력 상자의 종류를 작성
-      2) size : 
+    4.   Name        | Value    | Describe
+      1) type        | text     | 입력 상자의 종류를 작성
+      2) size        | 정수     | 입력 상자의 크기를 작성
+      3) value       |          | 입력 상자에 입력된 데이터(사용자가 입력한 데이터가 저장되는 속성)
+      4) maxlength   | 정수     | 입력 상자에 입력할 수 있는 최대 글자 수
+      5) readonly    | readonly | 읽기 전용
+      6) required    | required | 필수 입력
+      7) disabled    | disabled | 사용 금지
+      8) placeholder |          | 입력 안내 메시지
+      9) multiple    | multiple | 다중 첨부
+     10) name        |          | 입력 상자의 이름을 작성(Back단에서 인식)
    -->
    <p>
      <input type="text"><br>
@@ -41,10 +48,164 @@
       2. 형식 
         <textarea></textarea>
       3. 주요 속성
-        1) 
+        Name  | Value  | Describe
+      1) rows  | 정수   | 입력 가능한 최대 행의 개수
+      2) cols  | 정수   | 입력 가능한 최대 열의 개수 
     -->
     <p>
        <textarea rows="5" cols="50"></textarea>
     </p>
+    <hr>
+    <!-- 
+      목록 상자
+      1. 인라인 요소
+      2. 형식
+        <select>
+          <option>항목1</option>
+          <option>항목2</option>
+          <option>항목3</option>
+        </select>
+      3. 주요 속성
+           Name     |  Value   | Describe
+        1) name     |          | 목록 상자의 이름을 작성(Back단에서 인식), <select> 태그의 속성
+        2) value    |          | 각 항목의 값을 작성(Back단에서 인식), <option> 태그의 속성
+        3) selected | selected | 기본 선택 항목
+     --> 
+     <p>
+       <select name="direction">
+          <option value="">방향선택</option>
+          <option value="east">동</option>
+          <option value="west" selected="selected">서</option>
+          <option value="north">북</option>
+          <option value="south">남</option>
+       </select>
+     </p>
+     <hr>
+     <!-- 
+       입력 상자 + 목록 상자
+       1. <input> 태그 + <datalist> 태그
+       2. 형식
+         <input type="text" list="datalist아이디">
+         <datalist id="아이디">
+            <option>
+            <option>
+            <option>
+         </detalist>
+      -->
+      <p>
+        <input type="text" list="domain" placeholder="직접입력 또는 선택">
+        <datalist id="domain">
+          <option value="kakao.com"/>
+          <option value="naver.com"/>
+          <option value="gmail.com"/>
+        </datalist>
+      </p>
+      <hr>
+      <!-- 
+        단일 선택
+        1. 인라인 요소
+        2. 여러 항목 중에서 하나만 선택할 수 있다.
+        3. 형식
+          <input type="radio">
+        4. 주요 속성
+            Name     |  Value   | Describe
+        1)  name     |          | 라디오 버튼의 이름을 작성(Back단에서 인식), 모든 라디오 버튼은 동일한 name을 사용해야 한다.
+        2)  value    |          | 선택한 라디오 버튼의 값을 작성(Back단에서 인식)
+        3)  checked  |  checked | 기본 선택 라디오 버튼 
+       -->
+       <p>
+         <input type="radio" name="gender" value=""checked>선택안함
+         <input type="radio" nema="gender" value="male">남자
+         <input type="radio" name="gender" value="female">여자
+       </p>
+       <!-- 
+        다중 선택
+        1. 인라인 요소
+        2. 여러 항목 중에서 여러 항목을 선택할 수 있다.
+        3. 형식
+          <input type="checkbox">
+        4. 주요 속성
+            Name     |  Value   | Describe
+        1)  name     |          | 체크박스의 이름을 작성(Back단에서 인식), 일반적으로 모든 체크박스는 동일한 name을 사용 한다.
+        2)  value    |          | 선택한 체크박스의 값을 작성(Back단에서 인식)
+        3)  checked  |  checked | 기본 선택 체크박스
+       -->
+       <p>
+         <input type="checkbox" name="hobbies" value="fitness">운동
+         <input type="checkbox" name="hobbies" value="travel">여행
+         <input type="checkbox" name="hobbies" value="sns">SNS
+       </p>
+
+       <hr>
+
+       <!-- 
+         라벨
+         1. 인라인 요소 
+         2. 라벨을 선택하면 라벨과 연결된 입력 요소(input, textarea, select 등)가 선택된다.
+         3. 형식
+           <label for="입력요소id">라벨내용</label>
+           <input type="text" id="아이디">
+        -->
+        <p>
+          <input type="radio" name="gender" value="" id="gender_none">
+          <label for="gender_none">선택안함</label>
+          <input type="radio" name="gender" value="male" id="gender_male">
+          <label for="gender_male">남자</label>
+          <input type="radio" name="gender" value="female" id="gender_female">
+          <label for="gender_female">여자</label>
+        </p>
+        <hr>
+
+        <!-- 
+          폼
+          1. 입력 요소(input, textarea, select 등)들을 서버측으로 보내기 위해서 사용한다.
+          2. <form> 태그 내부에 서버측으로 보낼 입력 요소들을 배치한다.
+          3. <form> 태그 내부의 모든 입력 요소들을 서버측으로 보내는 것을 "서브밋(submit)"이라고 한다.
+          4. 형식
+             <form actio="서브밋경로" method="GET">
+               <input>
+               <textarea></textarea>
+               <select></select>
+               <button></button>
+             </form>
+          5. 주요 속성
+                Name     |  Value   | Describe          
+            1)  action   |          | 입력 요소들의 값을 보낼 서버의 경로를 작성
+            2)  method   | GET/POST | 요청 메서드
+          6. 요청 메서드
+            1) GET
+              (1) 디폴트, method 속성 생략 가능
+              (2) 입력 요소들의 이름(name)과 값(value)을 주소(URL)의 파라미터로 변환하여 전송하는 방식
+              (3) 처리가 빠르고 보안에 취약하다.
+            2) POST
+              (1) 입력 요소들을 요청 본문에 포함시켜서 전송하는 방식
+              (2) 처리가 느리고 보안이 우수하다.
+         -->
+         <!-- 
+           버튼종류
+           1. 서브밋
+             1) <button type="submit">텍스트</botton>
+             2) <input type="submit" value="텍스트">
+           2. 일반 
+             <input type="button" value="텍스트">
+           3. 초기화
+             1) <input type="reset" value="텍스트">
+          -->
+          <p>
+             <form action="https://search.naver.com/search.naver" method="get">
+               <input type="hidden" name="ie" value="utf8">
+               <input type="text" name="query" placeholder="검색어를 입력하세요">
+               <button type="submit">검색</button>
+             </form>
+          </p>
+          <p>
+           
+             <form action="https://www.google.com/search" method="get">
+               <input type="hidden" name="sca_esv" value="559020407">
+               <input type="text" name="q" placeholder="검색어를 입력하세요">
+               <button type="submit">검색</button>
+             </form>
+          </p>
+
 </body>
 </html>
