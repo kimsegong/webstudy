@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1 {
+      color: yellowgreen!important;  /* !important로 인해서 가장 높은 우선순위를 가진다. 단, important 사용은 자제한다 */
+    }
+    p {
+      color: aqua;
+    }
+    @keyframes slidein {
+      from {
+        margin-left: 100%;
+        width: 300%;
+      }
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }
+    h1, p {
+      animation-duration: 3s;
+      animation-name: slidein;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: salmon;">Hello World</h1>
+  <p style="color: teal;">안녕하세연</p>
+</body>
+</html>
