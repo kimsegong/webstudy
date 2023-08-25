@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    .wrap1 > table {
+
+      border: 1px solid gray ;
+
+      /* 테두리 합치기 */
+      border-collapse: collapse; 
+    }
+    .wrap1 > table td {
+      /* 테이블 테두리는 <td> 태그를 대상으로 처리하는 것이 일반적이다. */
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray ;
+
+      /* <td> 태그는 가로/세로 정렬이 모두 지원된다. */
+      text-align: center; /* 가로 방향 정렬 */
+      vertical-align: middle; /* 세로 방향 정렬 : top, middle, bottom */
+    }
+    /* nth-od-type(n) : nth-od-type(n) nth-od-type(n) nth-od-type(n) */
+    .wrap1 > table td:nth-of-type(n) {
+      width: 150px;
+    }
+
+    .wrap1 > table tr:hover {
+      background-color: yellow;
+      cursor: pointer;
+    }
+
+  </style>
+  <div class="wrap1">
+    <table>
+      <thead>
+        <tr>
+          <td>회원번호</td>
+          <td>회원명</td>
+          <td>회원거주지</td>
+          <td>회원포인트</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>홍길동</td>
+          <td>서울</td>
+          <td>1500</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>콩순이</td>
+          <td>인천</td>
+          <td>1750</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>말순이</td>
+          <td>경기</td>
+          <td>1200</td>
+        </tr>       
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap2 > .title {
+      font-weight: 900;
+      text-align: center;
+    }
+    .wrap2 > .title > span {
+      font-size: 48px;
+      color: blue;
+    }
+    .wrap2 > table{
+      border-collapse: collapse;
+      margin: 10px auto;
+    }
+    .wrap2 > table td{
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      padding:10px;
+      vertical-align: top;
+    }
+    .wrap2 > table > thead td {
+      height: 20px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .wrap2 > table > tbody td:hover {
+      background-color:coral;
+      cursor: pointer;
+    }
+    .prev, .next {
+      color:  silver;
+    }
+    .holiday {
+      color: crimson;
+    }
+    .sat {
+      color: blue;
+    }
+  </style>
+  <div class="wrap2">
+    <div class="title">
+      2023 <span>8</span> August
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <td class="holiday">SUN</td>
+          <td>MON</td>
+          <td>TUE</td>
+          <td>WED</td>
+          <td>THU</td>
+          <td>FRI</td>
+          <td class="sat">SAT</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prev">30</td>
+          <td class="prev">31</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td class="sat">5</td>
+        </tr>
+        <tr>
+          <td class="holiday">6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td class="sat">12</td>
+        </tr>
+        <tr>
+          <td class="holiday">13</td>
+          <td>14</td>
+          <td class="holiday">15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td class="sat">19</td>
+        </tr>
+        <tr>
+          <td class="holiday">20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td class="sat">26</td>
+        </tr>
+        <tr>
+          <td class="holiday">27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td class="next">1</td>
+          <td class="next">2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

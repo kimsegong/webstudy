@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    .wrap1 > div {
+      box-sizing: border-box;
+      width: 192px;
+      height: 128px;
+      background-size: 100%
+    }
+    .wrap1 > .box1 {     
+      background-image: url(../../assets/image/flower1.jpg);
+    }
+    .wrap1 > .box2 {
+      background-image: url(../../assets/image/flower2.jpg);
+    }
+    .wrap1 > .box3 {
+      background-image: url(../../assets/image/flower3.jpg);
+    }
+    .wrap1 > .box4 {
+      background-image: url(../../assets/image/flower4.jpg);
+    }
+    .wrap1 > .box5 {
+      background-image: url(../../assets/image/flower5.jpg);
+    }
+    .wrap1 > .box3 {
+      visibility: hidden;  /* 안 보임, 블록 영역은 차지하고 있음 */
+      opacity: 0;          /* 안 보임, 투명도0으로 지정하면 안보임 */
+    }
+  </style>
+  <div class="wrap1">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap2 > div {
+      box-sizing: border-box;
+      width: 192px;
+      height: 128px;
+    }
+    .wrap2 img {
+      /* visibility: hidden; */
+      opacity: 0;  /* 투명도 0은 안보임 */
+    }
+    .wrap2 > div:hover > img {
+      /* visibility: visible; */
+      opacity: 1; /* 투명도 1은 보임 */
+    }
+  </style>
+
+  <div class="wrap2">
+    <div class="box1">
+      <img src="../../assets/image/flower1.jpg" width="192px" height="128px">
+    </div>
+    <div class="box2">
+      <img src="../../assets/image/flower2.jpg" width="192px" height="128px">
+    </div>
+    <div class="box3">
+      <img src="../../assets/image/flower3.jpg" width="192px" height="128px">
+    </div>
+    <div class="box4">
+      <img src="../../assets/image/flower4.jpg" width="192px" height="128px">
+    </div>
+    <div class="box5">
+      <img src="../../assets/image/flower5.jpg" width="192px" height="128px">
+    </div>
+  </div>
+
+</body>
+</html>
