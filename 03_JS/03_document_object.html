@@ -64,5 +64,109 @@
     var primary_box = document.querySelectorAll('.wrap > .primary_box');
     console.log(primary_box);
   </script>
+
+  <!-- 태그 내부 텍스트 -->
+  <p id="p1">Hello World</p>
+  <script>
+    var p1 = document.getElementById('p1');
+    console.log(p1.textContent);
+
+    p1.textContent = '안녕하세요';
+    p1.textContent += '반갑습니다';
+  </script>
+
+  <!-- 태그 내부 요소 -->
+  <p id="p2"><strong>Hello World</strong></p>
+  <script>
+    var p2 = document.getElementById('p2');
+    console.log(p2.innerHTML);
+    p2.innerHTML = '<em>안녕하세요</em>';
+    p2.innerHTML = '<mark>반갑습니다.</mark>';
+
+  </script>
+
+  <!-- 태그 속성 -->
+  <p id="p3">
+    <img src="../../assets/image/animal1.jpg" width="384px">
+  </p>
+
+  <script>
+    /*
+      태그 속성
+      1. attribute
+      2. 태그에 명시된 속성을 말한다.
+      3. 태그 속성 메서드
+        1) 속성값 알아내기 : getAttribute('속성')
+        2) 속성값 변경하기 : setAttribute('속성', '값')
+        3) 속성값 지우기   : removeAttribute('속성')
+    */
+    var img = document.querySelector('#p3 > img');
+    console.log(img.getAttribute('src'));
+    console.log(img.getAttribute('width'));
+    img.setAttribute('src', '../../assets/image/animal2.jpg');
+    img.setAttribute('width', '194px');
+    img.removeAttribute('src');
+    img.removeAttribute('width');
+  </script>
+  <!-- 객체 속성 -->
+  <p id="p4">
+    <input type="radio" name="gender" value="M" id="male" class="blind"checked="checked">
+    <label for="male">남자</label>
+    <input type="radio" name="gender" value="F" id="female" class="blind">
+    <label for="female">여자</label>
+  </p>
+  <script>
+    /*
+      객체 속성
+      1. property
+      2. JavaScript로 저장한 문서 객체가 가지는 속성이다.
+      3. 태그에 명시된 attribute와 비슷하지만 다르다.
+        예시)
+                         | attribute          |  property
+        id="box"         |  id="box"          |   id: box
+        class="p"        |  class="p"         |  className: p
+        checked="checked"|  checked="checked" |  checked: true
+      4. 객체 속성 사용
+        1) 객체.속성
+        2) 객체['속성']
+      5. F12 - [Elements] 탭 - [Properties] 탭에서 property를 확인할 수 있다.
+    */
+   
+    var male = document.getElementById('male');
+    console.log('type',    male.type);
+    console.log('name',    male.name);
+    console.log('value',   male.value);
+    console.log('id',      male.id);
+    console.log('class',   male.class);
+    console.log('checked', male.checked);
+
+    var female = document.getElementById('female');
+    console.log('type',   female['type']);
+    console.log('name',   female['name']);
+    console.log('value',  female['value']);
+    console.log('id',     female['id']);
+    console.log('class',  female['class']);
+  </script>
+
+  <!-- 연습1. 봄,여름,가을,겨울 목록 만들기 -->
+  <ul id="season">
+
+  </ul>
+  <script>
+    var str = '<li>봄</li><li>여름</li><li>가을</li><li>겨울</li>';
+    document.getElementById('season').innerHTML = str;
+  </script>
+  <!-- 연습2. 이미지 + 링크 만들기 -->
+  <!-- 1. <a> 태그와 <img> 태그 넣기 -->
+  <!-- 2. <a> 태그에 href 속성, <img> 태그에 src, width 속성 넣기 -->
+  <ul id="site">
+  </ul>
+  <script>
+    var site = document.getElementById('site');
+    
+    site.innerHTML += '<li><a href="https://www.google.com/"><img src="../../assets/image/google.png" width="192px"></a></li>';
+    site.innerHTML += '<li><a href="https://www.naver.com/"><img src="../../assets/image/naver.png" width="192px"></a></li>';
+    site.innerHTML += '<li><a href="https://www.daum.net/"><img src="../../assets/image/daum.png" width="192px"></a></li>';
+  </script>
 </body>
 </html>
