@@ -12,85 +12,81 @@
 
     .wrap1 {
       text-align: center;
-      color: olive;
+      color: white;
       font-family: 'Noto Serif KR', serif;
       font-size: 25px;
       font-weight: 900;
-      width: 2800px;
-      max-width: 3000px;
-      margin: 10px auto;
-      background-color: antiquewhite;
-    }
-    .wrap1 > .box1 {
-      width: 2000px;
-      height: 50px;
-    }
-    .wrap1 > .wrapper {
-      width: 1000px;
-      height: 100px;
-      display: flex;
-      flex-direction: row; 
-                           
-      justify-content: space-between;
-      flex-wrap: nowrap;  
-    }
-    .wrap1 > .wrapper > .box2 {
-      flex: 7; 
-      height: 100px;
-    }
-    .wrap1 > .wrapper > .box3 {
-      flex: 3; 
-      height: 100px;
-    }
-    .wrap1 > .box4 {
-      width: 1800px;
-      height: 2000px;   
-      text-align: right;
-      color: coral;
-      font-family: 'Noto Serif KR', serif;
-      font-size: 22px;
-      font-style: italic; 
-      font-weight: 400;
-    }
-    .wrap1 > .box4 > .A {
-      padding: 6px;
-    }
-    .wrap1 > .box4 > .B {
-      padding: 6px;
-    }
-    .wrap1 > .box4 > .C {
-      padding: 6px;
-    }
-    .wrap1 > .box4 > .D {
-      padding: 6px;
-    }
 
+    }
+    .wrapper {
+      text-align: center;
+    }
+    body {
+    height: 100vh;
+    background: url(../../assets/image/the-beautiful-shining-stars-in-the-night-sky.jpg) no-repeat center;
+    background-size: cover;
+  }
+    body {
+    font-family: 'Noto Serif KR', serif;
+    text-align: center;
+    }
+    nav {
+     color: white;
+     padding: 10px;
+    }
+    .menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    }
+    .menu li {  
+    margin-right: 20px;
+    }
+    .menu a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+    }
+    .menu a:hover {
+    color: darkslategray;
+    }
+    .tab-content {
+    margin-top: 20px;
+    }
+    .tab-pane {
+    display: none;
+    }
+    .tab-pane.active {
+    display: block;
+   }
 
   </style>
 
   <div class="wrap1">
     <div class="box1"><h1>kong portfolio</h1></div>
     <div class="wrapper">
-    <div class="box2"></div>
-    <div class="box3"></div>
-  </div>
-    <div class="box4">
-      <dv class="A">
-        <h3>A</h3>
-      </dv>
-      <dv class="B">
-        <h3>B</h3>
-      </dv>
-      <dv class="C">
-        <h3>C</h3>
-      </dv>
-      <dv class="D">
-        <h3>D</h3>
-      </dv>
-      </dv>
+    <nav>
+      <ul class="menu">
+        <li><a href="#" data-tab="home">Home</a></li>
+        <li><a href="#" data-tab="about">About</a></li>
+        <li><a href="#" data-tab="projects">Projects</a></li>
+        <li><a href="#" data-tab="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="content" class="tab-content">
+      <div id="home" class="tab-pane">Home Content</div>
+      <div id="about" class="tab-pane">About Content</div>
+      <div id="projects" class="tab-pane">Projects Content</div>
+      <div id="contact" class="tab-pane">Contact Content</div>
+    </div>
+   </div>
+  
+    
   </div>
 
-
+  
+  
+  <script src="script.js"></script>
 
 
 
