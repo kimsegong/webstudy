@@ -7,6 +7,48 @@
 </head>
 <body>
   
+  <style>
+
+    /* CSS 초기화 */
+    body, div, ul, li {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    a {
+      color: black;
+      text-decoration: none; /* 밑줄 없애기 */
+    }
+    
+  </style>
+  <style>
+    /* gnb(global navigation bar) 만들기 */
+    .wrap1 {
+      margin: 10px; /* 위쪽에서 좀 띄겟다 */
+    }
+    .wrap1 > .gnb {
+      list-style-type: none; /* 각 항목 앞의 ●(marker) 없애기 */
+      overflow: hidden;      /* <li> 태그를 수평 배치하기 위해서 설정 하나씩 띄어서 배치한다. */
+      border-top: 1px solid silver;
+      border-bottom: 1.5px solid darkgrey ;
+      padding-left: 300px;
+    }
+    .wrap1 >.gnb > li {      /* <a>는 인라인 요소라서 너비높이 조절이안됨 */
+      float: left;           /* <li> 태그를 수평배치하기 위해서 설정(자식 태그에 float:left 주기)*/
+      width: 80px;           /* 각 메뉴의 너비 */
+      height: 40px;          /* 각 메뉴의 높이 */
+    }
+    .wrap1 > .gnb > li > a{
+      display: block;        /* 메뉴를 클릭할 수 있는 영역을 키우기 위햇 인라인 요소를 블록 요소로 변경 */
+      width: 100%;           /* 부모인 <li> 태그 기준 */
+      height: 100%;          /* 위에 부모가 80px 40px 니깐 그걸 100% 따라간다는 뜻 부모기준!!!!*/
+      text-align: center;    /* 글자 가로 가운데 정렬 */
+      line-height: 40px;     /* line-height 값은 height 값과 같거나 비슷하게 설정해서 글자 세로 가운데 정렬 효과를 줌 */
+    }
+    .wrap1 > .gnb > li > a:hover {
+      color: crimson;      /* 마우스를 가져다대면 글자 색상이 변함 */
+    }
+  </style>
   <div class="wrap1">
     <ul class="gnb">
       <li><a href="javascript:void(0)">메뉴1</a></li>
@@ -14,6 +56,60 @@
       <li><a href="javascript:void(0)">메뉴3</a></li>
       <li><a href="javascript:void(0)">메뉴4</a></li>
       <li><a href="javascript:void(0)">메뉴5</a></li>
+    </ul>
+  </div>
+
+  <hr> 
+
+  <style>
+    /* CSS 초기화 */
+    body, div, ul, li {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    a {
+      color: black;
+      text-decoration: none; /* 밑줄 없애기 */
+    }
+    .wrap2 {
+      margin: 10px;
+    }
+    .wrap2 > .gnb1 {
+      list-style-type: none; /* 각 항목 앞의 ●(marker) 없애기 */
+      display: flex;
+      justify-content: center ; /* 가로x축 방향 가운데 정렬 */
+      border-top: 1px solid gray;
+      border-bottom: 1.5px solid gray ;
+    }
+    .wrap2 >.gnb1 > li {     /* <a>는 인라인 요소라서 너비높이 조절이안됨 */
+      width: 80px;           /* 각 메뉴의 너비 */
+      height: 40px;          /* 각 메뉴의 높이 */
+    }
+    .wrap2 > .gnb1 > li > a{
+      display: block;        /* 메뉴를 클릭할 수 있는 영역을 키우기 위햇 인라인 요소를 블록 요소로 변경 */
+      width: 100%;           /* 부모인 <li> 태그 기준 */
+      height: 100%;          /* 위에 부모가 80px 40px 니깐 그걸 100% 따라간다는 뜻 부모기준!!!!*/
+      text-align: center;    /* 글자 가로 가운데 정렬 */
+      line-height: 40px;     /* line-height 값은 height 값과 같거나 비슷하게 설정해서 글자 세로 가운데 정렬 효과를 줌 */
+    }
+    .wrap2 > .gnb1 > li > a:hover {
+      color: limegreen;      /* 마우스를 가져다대면 글자 색상이 변함 */
+      border-bottom: 2px solid limegreen;
+    }
+
+  </style>
+  
+  <div class="wrap2">
+    <ul class="gnb1">
+      <li><a href="javascript:void(0)">사전</a></li>
+      <li><a href="javascript:void(0)">뉴스</a></li>
+      <li><a href="javascript:void(0)">증권</a></li>
+      <li><a href="javascript:void(0)">부동산</a></li>
+      <li><a href="javascript:void(0)">지도</a></li>
+      <li><a href="javascript:void(0)">VIBE</a></li>
+      <li><a href="javascript:void(0)">도서</a></li>
+      <li><a href="javascript:void(0)">웹툰</a></li>
     </ul>
   </div>
 </body>
