@@ -69,7 +69,7 @@
     // 년, 월, 일, 시, 분, 초, 타임스탬프
     var year = now.getFullYear();
     var month = now.getMonth();   // 주의 ! (0~11)
-    var day = now.getDate();
+    var day = now.getDate();  
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second = now.getSeconds();
@@ -82,7 +82,6 @@
  
     // 시계 만들기
     setInterval(function(){
-
       // 화면 표시
       var now = new Date();
       document.getElementById('year').textContent = now.getFullYear();
@@ -100,6 +99,11 @@
       }
     }, 1000); 
     
+    // 문제2. 디데이
+    var now = new Date();               // 2023-08-30
+    var dday = new Date(2023, 10, 16);  // 2023-11-16
+    var timestamp = dday.getTime() - now.getTime();
+    console.log(timestamp / 1000 / 60 / 60 / 24);
     
     </script>
   
