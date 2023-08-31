@@ -113,20 +113,69 @@
       console.log(str);             // 객체 {'JavaScript'}
       console.log(str.valueOf());   // 'JavaScript'
       
-      // 13. 문자열
+      // 13. 문자열을 분리해서 배열로 만들기
+      var str = 'Hello tom Nice to meet you!';
+      var words = str.split(' ');  // words = ['Hello', 'tom', 'Nice', 'to', 'meet', 'you!']
+      console.log(words[1]);       // 'tom'
     </script>
 
     <script>
 
       /* Array 내장 객체 */
 
-      var array = ['여행', '운동', '영화'];
+      var array = ['travel', 'fitness', 'movie', 'tracking', 'fishing'];
 
       // 1. 반복 메서드
       array.forEach(function(element){
         console.log(element);
       })
+      array.forEach(function(element, i){
+        console.log(i + ':' + element);
+      })
 
+      // 2. 필터(지정한 조건을 만족하는 요소만 남긴 배열 만들기)
+      // array.filter((요소) => 요소 검사);
+      var result = array.filter((element) => element.length > 6);   // 길이가 6보다 큰 요소만 남긴 배열 반환
+      console.log(result);
+
+
+      // 3. 배열 요소를 변경하기
+      // array.map((요소) => 변경할 값)
+      var array = [1, 2, ,3, 4, 5];
+      var map = array.map((element) => element ** 2); // 모든 요소를 2제곱 값으로 바꾼 배열 반환
+      console.log(map);
+
+      // 4. 배열 요소를 합쳐서 문자열로 반환하기
+      var array = ['travel', 'fitness', 'movie', 'tracking', 'fishing'];
+      console.log(array.join());      // 콤마(,)로 연결(디폴트)
+      console.log(array.join(' '));   // 공백으로 연결
+    </script>
+    <script>
+
+      /* Math 내장 함수 */
+       console.log(Math.abs(-5));      // 5, -5의 절대값
+       console.log(Math.ceil(7.1));    // 8, 7.1의 정수 올림값             
+       console.log(Math.ceil(-7.1));   // -7, 7.1의 정수 올림값             
+       console.log(Math.floor(7.1));   // 7, 7.1의 정수 내림값             
+       console.log(Math.floor(-7.1));   // -8,- 7.1의 정수 내림값             
+       console.log(Math.round(7.1));   // 7, 7.1의 정수 반올림
+       console.log(Math.round(-7.1));   // 7, -7.1의 정수 반올림
+       console.log(Math.trunc(7.1));    // 7, 7.1의 소수점 절사 
+       console.log(Math.trunc(-7.1));  // -7, -7.1의 소수점 절사
+       
+       console.log(Math.max(1,2,3,4,5));
+       console.log(Math.min(1,2,3,4,5));
+
+       var array = [1, 2, 3, 4, 5];
+       console.log(Math.max(...array)); // 5
+       console.log(Math.min(...array)); // 1
+
+       console.log(Math.pow(2, 3)); // 8, 2의 3제곱
+
+       console.log(Math.random());  // 0 <= 난수 < 1
+
+       console.log(Math.sqrt(25));  // 5, 루트 25
+       
     </script>
     <style>
       .warning {
@@ -182,6 +231,40 @@
     console.log(timestamp / 1000 / 60 / 60 / 24);
     
     </script>
-  
+    <!-- 문제 3. 정수 난수 발생기 -->
+    <!-- getRamdonInt(2, 5) : 2부터 5개(2, 3, 4, 5, 6) 중 하나의 난수를 반환하는 함수-->
+    <script>
+      function getRamdonInt(startm, count){
+        (int)(Math.random()*10)+1;
+        return Math.floor(Math.random() * count) + start;
+      }
+      for(let n = 0; n < 10; n++){
+      console.log(getRamdonInt(2, 5));
+      }
+    </script>
+
+    <!-- 문제 4. 올림 함수를 자리수 지정이 가능하도록 커스터 마이징 하기 -->
+
+    <script>
+      /*
+        ceil(555.555, 2)  === 555.56
+        ceil(555.555, 1)  === 555.6
+        ceil(555.555, 0)  === 556
+        ceil(555.555)     === 556
+        ceil(555.555, -1) === 560
+        ceil(555.555, -2) === 600
+      */
+
+      function ceil(number, digit = 0){
+        return Math.ceil(number * Math.pow(10, digit)) / Math.pow(10, digit);
+      }
+      console.log(ceil(555.555,2));
+      console.log(ceil(555.555,1));
+      console.log(ceil(555.555,0));
+      console.log(ceil(555.555));
+      console.log(ceil(555.555, -1));
+      console.log(ceil(555.555, -2));
+
+    </script>
 </body>
 </html>
