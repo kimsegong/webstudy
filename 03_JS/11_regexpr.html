@@ -82,13 +82,14 @@
   </script>
 
   <div>
+    <h1>날짜 검사</h1>
     <input type="text" id="date">
     <input type="button" value="검사" id="btn_date_check">
   </div>
   <script>
     // 날짜 형식 yyyy-mm-dd
     document.getElementById('btn_date_check').addEventListener('click', function(){
-      var regDate = /^[0-9]{4}-[0-9]{2}-\d{2}$/;
+      var regDate = /^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
       var date = document.getElementById('date').value;
       if(regDate.test(date)){
         alert('날짜가 맞습니다.');
@@ -97,6 +98,65 @@
       }
     })
   </script>
+
+  <hr>
+
+  <div>
+    <h1>우편번호 검사</h1>
+    <form action="#" id="frm_postcode">
+      <input type="text" id="postcode">
+      <button type="submit">검사</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('frm_postcode').addEventListener('submit', function(event){
+      var postcode = document.getElementById('postcode').value;
+      var regPost = /^[0-9]{5}$/.test(postcode);
+      if(!regPost){
+        alert('우편번호가 틀렸습니다.');
+        event.preventDefault();
+        return;
+      }
+    })
+  </script>
+
+  <hr>
+
+  <div>
+    <h1>아이디 검사하기</h1>
+    <input type="text" id="id">
+    <input type="button" value="검사" id="btn_id_check"> 
+  </div>
+  <script>
+    // 아이디 : 4자 이상, 영문자,숫자,-,_로 구성
+    document.getElementById('btn_id_check').addEventListener('click', function(event){
+    var regId = /^[A-Za-z0-9-_]{4,}$/;
+    var id = document.getElementById('id').value;
+    if(regId.test(id)){
+      alert('아이디가 맞습니다.');
+    } else {
+      alert('아이디가 아닙니다.');
+    }
+  })
+  </script>
   
+  <div>
+    <h1>비밀번호 검사</h1>
+    <input type="password" id="pw">
+    <input type="button" value="검사" id="btn_pw_check">
+  </div>
+  <script>
+    // 비밀번호 : 8~20자, 영문, 숫자, 특수문자, 2가지 이상 포함
+    document.getElementById('btn_pw_check').addEventListener('click', function(event){
+      var regPw = /^[^!@#$%%^&*()_:;][A-Za-z0-9]{8,20}$/;
+      var pw = document.getElementById('pw').value;
+      if(regPw.test(pw)){
+        alert('비밀번호가 맞습니다');
+      } else {
+        alert('비밀번호가 아닙니다.');
+      }
+    })
+  </script>
 </body>
 </html>
