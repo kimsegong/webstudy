@@ -182,8 +182,7 @@
     </form>
   </div>
   <script>
-    /* 주의! 서브밋은 <form> 태그가 이벤트 대상이다. <button> 태그가 아니다. */
-    
+    /* 주의! 서브밋은 <form> 태그가 이벤트 대상이다. <button> 태그가 아니다. */ 
     document.getElementById('frm1').addEventListener('submit', function(event){
 
       // 검색어가 비어 있으면 서브밋 방지
@@ -204,14 +203,12 @@
     </form>
   </div>
   <script>
-
     document.getElementById('btn_daum_query').addEventListener('click', function(){
       if(document.getElementById('q').value === ''){
         alert('검색어는 필수입니다.');
         return;  // 이벤트 리스너 실행 종료
       }
       document.getElementById('frm_daum_query').submit();  // 서브밋!
-
     })
   </script>
 
@@ -235,7 +232,6 @@
     </div>
   </div>
   <script>
-
     // 전체선택 문서객체
     var chkAll = document.getElementById('chk_all');
 
