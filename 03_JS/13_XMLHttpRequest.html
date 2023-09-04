@@ -26,13 +26,13 @@
       동기 통신 : 요청 결과(응답)를 받을 때까지 새로운 요청을 하지 않는 통신 방식
       client                         server
         A ---------------------------→ A
-        ACK ←-------------------------(A 성공)
+        ACK ←------------------------- (A 성공)
         B ---------------------------→ B
-        ACK ←-------------------------(B 성공)
+        ACK ←------------------------- (B 성공)
         C ---------------------------→ C
-        NAK ←-------------------------(C 실패)
+        NAK ←------------------------- (C 실패)
         C ---------------------------→ C
-        ACK ←-------------------------(C 성공)
+        ACK ←------------------------- (C 성공)
         D ---------------------------→ D
         ...
     */
@@ -41,13 +41,13 @@
       client                         server
         A ---------------------------→ A
         B ---------------------------→ B
-        ACK ←-------------------------(A 성공)
+        ACK ←------------------------- (A 성공)
         C ---------------------------→ C
         D ---------------------------→ D
-        ACK ←-------------------------(B 성공)
-        NAK ←-------------------------(C 실패)
+        ACK ←------------------------- (B 성공)
+        NAK ←------------------------- (C 실패)
         C ---------------------------→ C
-        ACK ←-------------------------(C 성공)
+        ACK ←------------------------- (C 성공)
         ...
     */
 
@@ -77,36 +77,40 @@
 
       // 4. 응답
       //   1) xhr 객체의 readystatechange 이벤트 : 응답되었는지 확인하는 이벤트
-      //   2) xhr.readyState : 통신상태 (0: OPENED, 1: UNSEND, 2: HEADER_RECEIVE, 3: LOADING, 4: DONE) 
+      //   2) xhr.readyState : 통신상태 (0: OPENED, 1: UNSEND, 2: HEADER_RECEIVE, 3: LOADING, 4: DONE)
       //   3) xhr.status     : 응답코드 (200: 성공, 4XX: 클라이언트 측 오류, 5XX: 서버 측 오류)
       //   4) 응답 데이터 형식에 따른 속성(property)
       //     (1) XML  : responseXML
       //     (2) JSON : responseText
       xhr.addEventListener('readystatechange', function(){
-        if(xhr.readyState === 4 ){
-         if(xhr.status === 200){
-          var data = xhr.responseXML;
-          var str = '';
-          var title = data.getElementsByTagName('title');
-          var author = data.getElementsByTagName('author');
-          for(let i = 0; i < title.lengthl; i++){
-            str += '<ul>'
-            str += '<li>' + title[i].textContent + '</li>';
-            str += '<li>' + author[i].textContent + '</li>';
-            str += '</ul>';
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = xhr.responseXML;
+            var str = '';
+            var title = data.getElementsByTagName('title');
+            var author = data.getElementsByTagName('author');
+            for(let i = 0; i < title.length; i++){
+              str += '<ul>'
+              str += '<li>' + title[i].textContent + '</li>';
+              str += '<li>' + author[i].textContent + '</li>';
+              str += '</ul>';
+            }
+            document.getElementById('xml_response1').innerHTML = str;
           }
-          document.getElementById('xml_response1').textContent = str;
         }
-      }
       })
+
     })
+
   </script>
+
 
   <hr>
 
+
   <div class="wrap2">
     <input type="button" value="XML요청2" id="btn_xml_request2">
-    <div id="xml2_response"></div>
+    <div id="xml_response2"></div>
   </div>
   <script>
 
@@ -119,10 +123,10 @@
         if(xhr.readyState === 4){
           if(xhr.status === 200){
             var data = xhr.responseXML;
-            var book = data.getElementsByTagName('book');getAttribute
+            var book = data.getElementsByTagName('book');
             var str = '';
             for(let i = 0; i < book.length; i++){
-              str += '<ul>'
+              str += '<ul>';
               str += '<li>' + book[i].getAttribute('title') + '</li>';
               str += '<li>' + book[i].getAttribute('author') + '</li>';
               str += '</ul>';
@@ -131,10 +135,14 @@
           }
         }
       })
+
     })
+
   </script>
 
+
   <hr>
+
 
   <div class="wrap3">
     <input type="button" value="JSON요청1" id="btn_json_request1">
@@ -144,27 +152,33 @@
 
     document.getElementById('btn_json_request1').addEventListener('click', function(){
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', 'book1.json', true);
-    xhr.send();
-    xhr.addEventListener('readystatechange', function(){
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          var data = JSON.parse(xhr.responseText);
-          var str = '';
-          for(let i = 0; i < data.length; i++){
-            str += '<ul>';
-            str += '<li>' + data[i].title + '</li>';  // data[i].title === data[i]['title']
-            str += '<li>' + data[i].author + '</li>';  
-            str += '</ul>';
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'book1.json', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = JSON.parse(xhr.responseText);
+            var str = '';
+            for(let i = 0; i < data.length; i++){
+              str += '<ul>';
+              str += '<li>' + data[i].title + '</li>';  // data[i].title === data[i]['title']
+              str += '<li>' + data[i].author + '</li>';
+              str += '</ul>';
+            }
+            document.getElementById('json_response1').innerHTML = str;
           }
-          document.getElementById('json_response1').innerHTML = str;
         }
-      }
+
+      });
+
     })
-  })
+
   </script>
+
+
   <hr>
+
 
   <div class="wrap4">
     <input type="button" value="JSON요청2" id="btn_json_request2">
@@ -174,32 +188,37 @@
 
     document.getElementById('btn_json_request2').addEventListener('click', function(){
 
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', 'book2.json', true);
-      xhr.send();
-      xhr.addEventListener('readystatechange', function(){
-        if(xhr.readyState === 4){
-          if(xhr.status === 200){
-            var data = JSON.parse(xhr.responseText);
-            var str = '';
-            for(let i = 0; i < data.books.length; i++){
-              str += '<ul>';
-              str += '<li>' + data.books[i].title + '</li>';
-              str += '<li>' + data.books[i].author + '</li>';
-              str += '</ul>';
-            }
-            document.getElementById('json_response2').innerHTML = str;
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'book2.json', true);
+    xhr.send();
+    xhr.addEventListener('readystatechange', function(){
+      if(xhr.readyState === 4){
+        if(xhr.status === 200){
+          var data = JSON.parse(xhr.responseText);
+          var str = '';
+          for(let i = 0; i < data.books.length; i++){
+            str += '<ul>';
+            str += '<li>' + data.books[i].title + '</li>';
+            str += '<li>' + data.books[i].author + '</li>';
+            str += '</ul>';
           }
+          document.getElementById('json_response2').innerHTML = str;
         }
-
-      })
+      }
 
     })
 
+  })
+
   </script>
 
-  <!-- 문제1. sfc_web_map.xml 읽어서 테이블 표시하기(지역명, 날씨, 온도) -->
+
+  <hr>
+
+  <!-- 문제1. sfc_web_map.xml 읽어서 테이블로 표시하기(지역명, 날씨, 온도) -->
   <div class="wrap5">
+    <input type="button" value="날씨읽기" id="btn_get_xml">
+    <input type="button" value="초기화" id="btn_init">
     <table border="1">
       <thead>
         <tr>
@@ -213,71 +232,96 @@
     </table>
   </div>
   <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', 'sfc_web_map.xml', true);
-    xhr.send();
-    xhr.addEventListener('readystatechange', function(){
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          var data = xhr.responseXML;
-          var local = data.getElementsByTagName('local');
-          var str = '';
-          for(let i = 0; i < local.length; i++){
-            str += '<tr>'
-            str += '<td>' + (i + 1) + '</td>';
-            str += '<td>' + local[i].textContent + '</td>';
-            str += '<td>' + local[i].getAttribute('desc') + '</td>';
-            str += '<td>' + local[i].getAttribute('ta') + '</td>';
-            str += '</tr>';
+
+    document.getElementById('btn_get_xml').addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'sfc_web_map.xml', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = xhr.responseXML;
+            var local = data.getElementsByTagName('local');
+            var str = '';
+            for(let i = 0; i < local.length; i++){
+              str += '<tr>';
+              str += '<td>' + (i + 1) + '</td>';
+              str += '<td>' + local[i].textContent + '</td>';
+              str += '<td>' + local[i].getAttribute('desc') + '</td>';
+              str += '<td>' + local[i].getAttribute('ta') + '</td>';
+              str += '</tr>';
+            }
+            document.getElementById('sfc_web_map').innerHTML = str;
           }
-          document.getElementById('sfc_web_map').innerHTML = str;
-      }
-    }
-  })
+        }
+      })
+    })
+
+    document.getElementById('btn_init').addEventListener('click', function(){
+      document.getElementById('sfc_web_map').innerHTML = '';
+    })
+
   </script>
 
-  <!-- 문제2. weather.json 읽어서 테이블 표시하기(지역명, 날씨, 온도) -->
-
+  <!-- 문제2. weather.json 읽어서 테이블로 표시하기(지역명: "서울ㆍ인천ㆍ경기도", 시간, 날씨, 최저온도, 최고온도) -->
   <div class="wrap6">
-    <table border="1">
-      <thead>
-        <tr>
-          <td>순번</td>
-          <td>지역명</td>
-          <td>시간</td>
-          <td>날씨</td>
-          <td>최저온도</td>
-          <td>최고온도</td>
-        </tr>
-      </thead>
-      <tbody id="weather.json"></tbody>
-    </table>
+    <input type="button" value="날씨읽기" id="btn_get_json">
+    <div id="weather">
+    </div>
   </div>
   <script>
-    
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', 'weather.json', true);
-    xhr.send();
-    xhr.addEventListener('readystatechange', function(){
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          var data = JSON.parse(xhr.responseText);
-          var localData = data.local;
-          var str = '';
-          for(let i = 0; i < data.local.length; i++){
-            str += '<tr>'
-            str += '<td>' + (i + 1) + '</td>';
-            str += '<td>' + localData[i].province + '</td>';
-            str += '<td>' + localData[i].tmEf + '</td>';
-            str += '<td>' + localData[i].wf + '</td>';
-            str += '<td>' + localData[i].tmn + '</td>';
-            str += '<td>' + localData[i].tmx + '</td>';
-            str += '</tr>';
+
+    document.getElementById('btn_get_json').addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'weather.json', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var resData = JSON.parse(xhr.responseText);
+            var location = resData.rss.channel.item.description.body.location;
+            var rowspan = 0;
+            var tbody = '<tbody>';
+            for(let i = 0; i < location.length; i++){
+              if(location[i].province.startsWith('서울')){
+                var data = location[i].data;
+                rowspan += data.length;
+                for(let j = 0; j < data.length; j++){
+                  tbody += '<tr>';
+                  if(i === 0 && j === 0){
+                    tbody += '<td id="first_row">' + location[i].province + '</td>';
+                  }
+                  if(j === 0){
+                    tbody += '<td rowspan="' + data.length + '">' + location[i].city + '</td>';
+                  }
+                  tbody += '<td>' + data[j].tmEf + '</td>';
+                  tbody += '<td>' + data[j].wf + '</td>';
+                  tbody += '<td>' + data[j].tmx + '</td>';
+                  tbody += '<td>' + data[j].tmn + '</td>';
+                  tbody += '</tr>';
+                }
+              }
+            }
+            tbody += '</tbody>';
+            var str = '<table border="1">';
+            str += '<thead><tr>';
+            str += '<td>지역</td>';
+            str += '<td>도시</td>';
+            str += '<td>시간</td>';
+            str += '<td>날씨</td>';
+            str += '<td>최저온도</td>';
+            str += '<td>최고온도</td>';
+            str += '</tr></thead>';
+            str += tbody;
+            str += '</table>';
+            document.getElementById('weather').innerHTML = str;
+            document.getElementById('first_row').setAttribute('rowspan', rowspan);
           }
-          document.getElementById('weather.json').innerHTML = str;
-      }
-    }
-  })
+        }
+      })
+
+    })
+
   </script>
 </body>
 </html>
