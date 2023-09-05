@@ -104,93 +104,93 @@
     })
   </script>
 
-<div class="post" data-post="1">
-  <h1 class="title">제목1</h1>
-  <div class="content">내용1</div>
-  <input type="button" value="삭제" class="btn_remove1">
-</div>
-<div class="post" data-post="2">
-  <h1 class="title">제목2</h1>
-  <div class="content">내용2</div>
-  <input type="button" value="삭제" class="btn_remove1">
-</div>
-<script>
-  var target = $('.btn_remove1').parent();
-  console.log(target);
-  var target = $('.btn_remove1').closest('.post');
-  console.log(target);
-</script>
+  <div class="post" data-post="1">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove1">
+  </div>
+  <div class="post" data-post="2">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove1">
+  </div>
+  <script>
+    var target = $('.btn_remove1').parent();
+    console.log(target);
+    var target = $('.btn_remove1').closest('.post');
+    console.log(target);
+  </script>
 
-<hr>
+  <hr>
 
-<div class="post">
-  <h1 class="title" data-post="1">제목1</h1>
-  <div class="content">내용1</div>
-  <input type="button" value="삭제" class="btn_remove2">
-</div>
-<div class="post">
-  <h1 class="title" data-post="2">제목2</h1>
-  <div class="content">내용2</div>
-  <input type="button" value="삭제" class="btn_remove2">
-</div>
-<script>
-  var target = $('.btn_remove2').prev().prev();
-  console.log(target);
-  var target = $('.btn_remove2').prevAll('.title');
-  console.log(target);
-</script>
+  <div class="post">
+    <h1 class="title" data-post="1">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove2">
+  </div>
+  <div class="post">
+    <h1 class="title" data-post="2">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove2">
+  </div>
+  <script>
+    var target = $('.btn_remove2').prev().prev();
+    console.log(target);
+    var target = $('.btn_remove2').prevAll('.title');
+    console.log(target);
+  </script>
 
-<hr>
+  <hr>
 
-<div class="post">
-  <h1 class="title">제목1</h1>
-  <div class="content" data-post="1">내용1</div>
-  <input type="button" value="삭제" class="btn_remove3">
-</div>
-<div class="post">
-  <h1 class="title">제목2</h1>
-  <div class="content" data-post="2">내용2</div>
-  <input type="button" value="삭제" class="btn_remove3">
-</div>
-<script>
-  var target = $('.btn_remove3').prev();
-  console.log(target);
-</script>
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content" data-post="1">내용1</div>
+    <input type="button" value="삭제" class="btn_remove3">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content" data-post="2">내용2</div>
+    <input type="button" value="삭제" class="btn_remove3">
+  </div>
+  <script>
+    var target = $('.btn_remove3').prev();
+    console.log(target);
+  </script>
 
-<hr>
+  <hr>
 
-<div class="post">
-  <h1 class="title">제목1</h1>
-  <div class="content">내용1</div>
-  <input type="button" value="삭제" class="btn_remove4" data-post="1">
-</div>
-<div class="post">
-  <h1 class="title">제목2</h1>
-  <div class="content">내용2</div>
-  <input type="button" value="삭제" class="btn_remove4" data-post="2">
-</div>
-<script>
-  var target = $('.btn_remove4');
-  console.log(target);
-</script>
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove4" data-post="1">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove4" data-post="2">
+  </div>
+  <script>
+    var target = $('.btn_remove4');
+    console.log(target);
+  </script>
 
-<hr>
+  <hr>
 
-<div class="post">
-  <h1 class="title">제목1</h1>
-  <div class="content">내용1</div>
-  <input type="button" value="삭제" class="btn_remove5">
-  <input type="hidden" value="1">
-</div>
-<div class="post">
-  <h1 class="title">제목2</h1>
-  <div class="content">내용2</div>
-  <input type="button" value="삭제" class="btn_remove5">
-  <input type="hidden" value="2">
-</div>
-<script>
-  var target = $('.btn_remove5').next();
-  console.log(target);
-</script>
-</body>
-</html>
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove5">
+    <input type="hidden" value="1">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove5">
+    <input type="hidden" value="2">
+  </div>
+  <script>
+    var target = $('.btn_remove5').next();
+    console.log(target);
+  </script>
+  </body>
+  </html>
