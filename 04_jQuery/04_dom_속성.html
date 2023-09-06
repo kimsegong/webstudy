@@ -85,13 +85,47 @@
 
 
   <!-- value 속성 -->
+  <p id="p3">
+    <input type="text" placeholder="입력상자">
+    <br>
+    <select>
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+    </select>
+    <br>
+    <textarea>안녕하세요.</textarea>
+  </p>
 
+  <script>
 
-  <hr>
+    // value 가져오기
+    console.log($('#p3 > select:selected').val());
+    // value 설정하기
+    $('#p3 > :text').val('HelloWorld');
+    $('#p3 > select').val(3);
+    $('#p3 > textarea').val('안녕하세요. 반갑습니다');
+    </script>
+    <hr>
 
 
   <!-- data- 속성 -->
+  <p id="p4">
+    <span id="first"></span>부터 <span id="last"></span>까지
+  </p>
 
 
+
+  <script>
+    
+    // data-속성 설정하기
+    $('#p4').data('range', {'first': 1, 'last': 10})
+
+    // data-속성 가져오기
+    var range = $('#p4').data('range');
+
+    // data-속성 설정하기
+    $('#first').data('first', range.first)
+  </script>
 </body>
 </html>
