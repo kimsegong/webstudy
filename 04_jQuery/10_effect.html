@@ -36,15 +36,15 @@
       4. slideUp()    : 위로 슬라이드되면서 닫힌다.
     */
    $('#btn_close').click(function(){
-  //   $('#img').fadeOut(2000, 'linear', function(){
-  //     alert('닫혔습니다');
-  //   }); // 2초동안 서서히 닫힌다. linear 일정하게 닫힌다. 닫히면 function(){}이 실행된다.
-  //  })
-    $('#img').slideUp(2000, 'linear', function(){
-      alert('닫혔습니다.');
-    })
-    $('#img').fadeTo(2000, 0.5);  // 2초 동안 opacity 0.5로 조정한다.
-  })
+    $('#img').fadeOut(2000, 'linear', function(){
+      alert('닫혔습니다');
+    }); // 2초동안 서서히 닫힌다. linear 일정하게 닫힌다. 닫히면 function(){}이 실행된다.
+   })
+    // $('#img').slideUp(2000, 'linear', function(){
+    //   alert('닫혔습니다.');
+    // })
+    // $('#img').fadeTo(2000, 0.5);  // 2초 동안 opacity 0.5로 조정한다.
+ 
 
     /*
       열기 효과
@@ -53,14 +53,14 @@
       3. slideDown()  : 아래로 슬라이드되면서 나타난다.
     */
    $('#btn_open').click(function(){
-  //   $('#img').slideDown(2000, function(){
-  //     alert('열렸습니다');
-  //   });
-  //  })
-  $('#img').slideDown(2000, 'linear', function(){
-    alert('열렸습니다.');
-  })
-})
+    $('#img').slideDown(2000, function(){
+      alert('열렸습니다');
+    });
+   })
+//   $('#img').slideDown(2000, 'linear', function(){
+//     alert('열렸습니다.');
+//   })
+// })
 
     /*
       토글 효과
