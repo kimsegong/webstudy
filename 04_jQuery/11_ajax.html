@@ -126,32 +126,75 @@
       })
       // myFunc1 함수 정의
       function myFunc1(resData){
+        var productList = $('<div>').addClass('product_list');
         $.each(resData, function(i, elem){
           var ul = $('<ul>').addClass('product');
           ul.append($('<li>').text(elem.maker));
           ul.append($('<li>').text(elem.model));
           ul.append($('<li>').text(elem.price));
-          div.append(ul);
+          productList.append(ul);
         })
-        $('#box3').append(div);
+        $('#box3').append(productList);
       }
     </script>
     <style>
 
-      #box3 div {
+     #box3 * {
         box-sizing: border-box;
-        border : 1px solid gray;
-        width: 200px;
-        display: inline-block;
-        justify-content: space-between;
+        padding: 0;
+        margin: 0;
       }
-     #box3 ul {
-        width: 50px;
-        padding: 20px 10px;
-        text-align: center;
-        justify-content: space-between;
+     #box3 .product_list {
+        width: 400px;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid saddlebrown;
+      }
+      #box3 .product {
+       list-style-type: none;
+       padding: 20px 10px;
+       text-align: center;
+       border: 1px solid green;
      }
     </style>
+
+    <hr>
+
+    <div id="box4">
+      <button id="btn4">JSON요청2</button>
+    </div>
+    <script>
+      $('#btn4').click(function(){
+        $.ajax({
+          /* 요청 */
+          type: 'get',
+          url: 'product2.json',
+          async: true,
+          /* 응답 */
+          dataType: 'json',
+          success: function(resData){   // resData = JSON.parse(xhr.responseText)
+            $('#box4').find('table').remove();
+            myFunc2(resData);         // myFunc2 함수 호출
+          },
+          error: function(jqXHR){
+            alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+          }
+        })
+      })
+      // myFunc2 함수 정의
+      function myFunc2(resData){
+        var table = $('<table border="1"><thead><tr><td>순번</td><td>제조사</td><td>상품</td><td>가격</td></tr></thead></table>').addClass('products');
+        $.each(resData.products, function(i, elem){
+          var tr = $('<tr>');
+          tr.append($('<td>').text(i + 1));
+          tr.append($('<td>').text(elem.maker));
+          tr.append($('<td>').text(elem.model));
+          tr.append($('<td>').text(elem.price));
+          table.append(tr);
+        })
+        $('#box4').append(table);
+      }
+    </script>
 
 </body>
 </html>
