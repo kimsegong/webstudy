@@ -217,9 +217,62 @@
         <button id="btn5">book.xml 가져오기</button>
       </div>
       <script>
+        function getBookXML(){
+        $('#btn5').click(function(){
+          $.ajax({
+            type: 'get',
+            url: 'book.xml',
+            async: true,
+            dataType: 'xml',
+            success: function(resData){
+            $('#box5 div').remove();
+            $.each($(resData).find('item'),function(i, elem){
+              var image = $('<div>').addClass('image');
+              image.append($('<a>').attr('href',$(elem).find('link').text()).append($('<img>').attr('src', $(elem).find('image').text())));
+              var content = $('<div>').addClass('content');
+              var ul = $('<ul>');
+              ul.append($('<li>').text('제목' + $(elem).find('title').text()));
+              ul.append($('<li>').text('저자' + $(elem).find('author').text()));
+              ul.append($('<li>').text('책가격' + $(elem).find('discount').text()));
+              ul.append($('<li>').text('출판사' + $(elem).find('publisher').text()));
+              ul.append($('<li>').text('출판일자' + $(elem).find('pubdate').text()));
+              ul.append($('<li>').text('코드' + $(elem).find('isbn').text()));
+              var description = $(elem).find('description').text();
+              ul.append($('<li>').text('설명:' + (description.length >= 100 ? description.substring(0, 100) + ' ...' : description)));
+              content.append(ul);
+              var book = $('<div>').addClass('book');
+              book.append(image);
+              book.append(content);
+              $('#box5').append(book);
+            
+            })
+          },
+          error: function(jqXHR){
+            Error(jqXHR.status + '(' + jqXHR.statusText + ')');
+          }
+           
+          })
+        })
+      }
 
+      getBookXML();
       </script>
-
+      <style>
+        #box5 div {
+          box-sizing: border-box;
+        }
+        #box5 .book {
+          width: 800px;
+          border: 1px solid gray;
+          display: flex;
+        }
+        #box5 .image {
+          width: 150px;
+        }
+        #box5 .image a img {
+          width: 150px;
+        }
+      </style>
 
       <hr>
 
@@ -228,9 +281,63 @@
         <button id="btn6">book.json 가져오기</button>
       </div>
       <script>
+      // getBookJSON 함수 정의
+    function getBookJSON(){
+      $('#btn6').click(function(){
+        $.ajax({
+          type: 'get',
+          url: 'book.json',
+          async: true,
+          dataType: 'json',
+          success: function(resData){
+            $('#box6 div').remove();
+            $.each(resData.items, function(i, elem){
+              var image = $('<div>').addClass('image');
+              image.append($('<a>').attr('href', elem.link).append($('<img>').attr('src', elem.image)));
+              var content = $('<div>').addClass('content');
+              var ul = $('<ul>');
+              ul.append($('<li>').text('제목:' + elem.title));
+              ul.append($('<li>').text('저자:' + elem.author));
+              ul.append($('<li>').text('판매가:' + elem.discount));
+              ul.append($('<li>').text('출판사:' + elem.publisher));
+              ul.append($('<li>').text('출판일:' + elem.pubdate));
+              ul.append($('<li>').text('ISBN:' + elem.isbn));
+              var description = elem.description;
+              ul.append($('<li>').text('설명:' + (description.length >= 100 ? description.substring(0, 100) + ' ...' : description)));
+              content.append(ul);
+              var book = $('<div>').addClass('book');
+              book.append(image);
+              book.append(content);
+              $('#box6').append(book);
+            })
+          },
+          error: function(jqXHR){
+            Error(jqXHR.status + '(' + jqXHR.statusText + ')');
+          }
+        })
+      })
+    }
 
-      </script>
+    // getBookJSON 함수 호출
+    getBookJSON();
 
+  </script>
+  <style>
+    #box6 div {
+      box-sizing: border-box;
+    }
+    #box6 .book {
+      width: 800px;
+      border: 1px solid gray;
+      display: flex;
+    }
+    #box6 .image {
+      width: 150px;
+    }
+    #box6 .image a img {
+      width: 150px;
+    }
+  </style>
 
 
 
