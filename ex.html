@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    .good {
+      color: teal;
+    }
+    .warning {
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+  
+  <div>
+    <form id="frm_login" method="post" action="/">
+      <div>
+        <input type="text" id="id" placeholder="ID">
+        <div id="msg_id"></div>
+      </div>
+      <div>
+        <input type="password" id="pw" placeholder="Password">
+        <div id="msg_pw"></div>
+      </div>
+      <div>
+        <button type="submit">로그인</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    $('#id').keyup(function(){
+      // if(this.value.length < 4){
+      //   $('#msg_id').text('아이디는 4글자 이상입니다.').addClass('warning');
+      // } else {
+      //   $('#msg_id').text('').removeClass('warning');
+      // }
+      var regId = /^[A-Za-z][A-Za-z0-9-_]{4,19}$/;
+      if(regId.test(this.value)){
+        $('#msg_id').text('good').addClass('good').removeClass('warning');
+      } else {
+        $('#msg_id').text('아이디는 5~20자 해주세여되는디?').addClass('warning').removeClass('good');
+      }
+    })
+
+    $('#frm_login').submit(function(event){
+      if($('#msg_id').hasClass('good'));
+      alert('아이디를 확인하세요');
+      event.preventDefault();
+      return;
+    })
+  </script>
+</body>
+</html>
