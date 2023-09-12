@@ -38,7 +38,7 @@
       // } else {
       //   $('#msg_id').text('').removeClass('warning');
       // }
-      var regId = /^[A-Za-z][A-Za-z0-9-_]{4,19}$/;
+      var regId = /^[a-z][a-z0-9]{3,19}$/;
       if(regId.test(this.value)){
         $('#msg_id').text('good').addClass('good').removeClass('warning');
       } else {
@@ -46,12 +46,116 @@
       }
     })
 
+    $('#pw').keyup(function(){
+      if(this.value.length === 0){
+        $('#msg_pw').text('비밀번호를 입력하세요.').addClass('warning');
+      } else {
+        $('#msg_pw').text(''),removeClass('warning');
+      }
+    })
+
     $('#frm_login').submit(function(event){
-      if($('#msg_id').hasClass('good'));
+      if($('#msg_id').hasClass('good')){
       alert('아이디를 확인하세요');
       event.preventDefault();
       return;
+      }
+      if(!$('#msg_pw').hasClass('warning')){
+        alert('비밀번호를 입력하세연');
+        event.preventDefault();
+        return;
+      }
     })
   </script>
+
+
+
+
+
+
+<!-- ========================================================= -->
+
+<!-- 고전 이벤트 모델 -->
+<div id="box1">
+  <button id="btn">전송</button>
+</div>
+<script>
+  document.getElementById('box1').onclick = function(event){
+    alert('전송합니다.');
+  }
+</script>
+<!-- 표준 이벤트 모델 -->
+<div id="box2">
+  <button id="btn">전송</button>
+</div>
+<script>
+  document.getElementById('box2').addEventListener('click', function(event){
+    alert('전송합니다.');
+  })
+</script>
+<!-- 인라인 이벤트 모델 -->
+<div id="box3" onclick="myFunc(this)">
+  <button id="btn">전송</button>
+</div>
+<script>
+  function myFunc(dom){
+    alert('전송합니다.');
+  }
+</script>
+
+<div id="box4">
+  <button id="to_site">이동</button>
+</div>
+<script>
+  var button = document.getElementById('to_site');
+  button.addEventListener('click', function() {
+    window.location.href = 'https://www.google.com/';
+  });
+</script>
+
+
+<form id="frm" action="https://search.naver.com/search.naver">
+  <input type="text" name="query" id="query">
+  <input type="submit" value="네이버검색" id="btn">
+</form>
+
+<script>
+ document.getElementById('frm').onsubmit = function(event) {
+    var query = document.getElementById('query').value;
+    if (query.trim() === '') {
+      alert('검색어를 입력하세요.');
+      event.preventDefault();
+    } else {
+      alert('검색어는 ' + query + '입니다.');
+    }
+  };
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

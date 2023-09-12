@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style>
+  #all {
+    box-sizing: border-box;
+    font-family: 'Malgun Gothic', sans-serif;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+  }
+  body {
+      padding: 0;
+      margin: 0;
+      background-color: #F5F6F7; 
+    }
+    #a {
+      font-size: 13px;
+      font-weight: bold;
+      text-align: center;
+    }
+  .login_wrap {
+      
+      height: 140px;
+      margin: auto;  
+      padding: 1px;
+    }
+    .input_wrap1 {
+      width: 460px;
+      height: 50px;
+      border: 2px solid #007700;
+
+    }
+    .input_wrap2 {
+      width: 460px;
+      height: 50px;
+      border: 2px solid #007700;
+
+    }
+   .btn_login {
+    width: 460px;
+    height: 60px;
+    cursor: pointer;
+    border: 0;
+    color: #F5F6F7;
+    font-weight: bold;
+   }
+   #dddd {
+    margin: 0;
+    padding: 0;
+    
+   }
+    div {
+      margin: auto;
+      width: 560px;
+      text-align: center;
+      padding: 2px;
+    }
+    
+    a {
+      color: #000000;
+      text-decoration: none; 
+      font-size: 150px;
+      
+    }
+    .input_wrap1:hover{
+      width: 460px;
+      border: 1px solid #FF8800;
+    }
+    .input_wrap2:hover{
+      width: 460px;
+      border: 1px solid #FF8800;
+    }
+    .btn_login {
+      font-size: 16px;
+      background-color: #007700;
+    }
+    .subbtn {
+      color: #F5F6F7;
+      background-color: #007777;
+      width: 220px;
+      height: 55px;
+      margin-bottom: 30px;
+      display: inline-block;
+      border-color: #007777;
+      margin: 5px;
+      margin-top: 0;
+    }
+    .good {
+      color: #0000FF;
+      font-size: 14px;
+    }
+    .warning {
+      color: #FF0000;
+      font-size: 14px;
+    }
+    #text1 {
+      text-align: center;
+      display: flex;
+      font-size: 10px;
+      height: 20px;
+
+    }
+</style>
+<body>
+  <div id="all">
+    <header>
+      <a href="https://www.gdu.co.kr/main/main.html">
+        <img src="https://www.gdu.co.kr/images/main/logo.png">
+      </a>   
+    </header>
+    <section id="U">
+      <div id="a">
+      <label for="check">※ 회원구분을 위해 체크해 주세요</label>
+      <input type="radio" name="member" value="m" id="mem">
+      <label for="mem">수강생</label>
+      <input type="radio" name="member" value="I" id="Ilban">
+      <label for="Ilban">일반회원</label>
+      </div>
+      <form id="frm_login" method="post" action="/">
+        <div class="login_wrap">
+          <div class="left_wrap">
+             <div id="dddd">
+               <input class="input_wrap1" type="text" id="id" placeholder="아이디">
+               <div id="msg_id"></div>
+             </div>
+            </div>
+           <div>
+             <input class="input_wrap2" type="password" id="pw" placeholder="●●●●">
+             <div id="msg_pw"></div>
+           </div>
+          </div>
+        </div>
+        <div class="right_wrap">
+          <button class="btn_login">로그인</button>
+        </div>
+          </div>         
+      </div>
+    </form>
+</section>
+<footer>
+
+  <form id="bb" action="javascript:void(0)">
+    <div>
+      <PRE id="text1">                    아직회원이 아닌가요?                     
+가입하면 다양한 서비스 이용이 가능합니다.
+      </PRE>
+      <button  class="subbtn" type="submit" >회원가입</button>
+      <button  class="subbtn" type="submit">아이디/비밀번호 찾기</button>
+    </div>
+  </form>
+</nav>
+</footer>
+</div>
+<script>
+$('#id').keyup(function(){
+      var regId = /^[a-z][a-z0-9]{4,}$/;
+      if(regId.test(this.value)){
+        $('#msg_id').text('정상적인 아이디입니다.').addClass('good').removeClass('warning');
+      } else {
+        $('#msg_id').text('아이디는 4자 이상입니다.').addClass('warning').removeClass('good');
+      }
+    })
+    $('#frm_login').submit(function(event){
+      if($('#msg_id').hasClass('good')){
+      alert('아이디를 확인하세요');
+      event.preventDefault();
+      return;
+      }
+      if(!$('#msg_pw').hasClass('warning')){
+        alert('비밀번호를 입력하세연');
+        event.preventDefault();
+        return;
+      }
+    })
+</script>
+
+</body>
+</html>
