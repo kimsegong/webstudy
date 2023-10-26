@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- 구글 오토산 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +21,17 @@
         header{
             background-color: white;
         }
-        /* .title h3 {
-          box-shadow: var(--bs-box-shadow);
+        .title h3 {
+          margin-bottom: 30px;
           text-align: center;
-        } */
+          padding: 15px;
+          
+        }
         #nav_menu {
             color: black;
+        }
+        #top-nav {
+          border-bottom: 1px solid black;
         }
         #member_login:hover, #member_sign:hover {
             background-color: #ff8400;
@@ -53,7 +59,7 @@
 <body>
     <header>
         <!-- 상단 네비바 -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg" id="top-nav">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"><img src="https://github.com/skal48/Project_Eatingday/blob/dev/main_images/eatingday_main_03.png?raw=true" width="100px" height="39px"></a><!--# main 페이지 연결해. 이미지도 경로 바꿔-->
               <div class="collapse navbar-collapse position-absolute top-50 start-50 translate-middle" id="navbarSupportedContent">
@@ -75,15 +81,14 @@
                     </li>                   
                   </ul>     
                 </div>
-                 <form class="d-flex gap-2" role="search">                 
-                  <button class="btn btn-outline-success float-end fs-6 fw-medium" type="button" id="member_login">로그인</button>
-                  <button class="btn btn-outline-success float-end fs-6 fw-medium" type="button" id="member_sign">회원가입</button>
-                </form>                
+                <button type="button" class="btn fa-xl"  aria-expanded="false">
+                  <i class="fa-solid fa-circle-user fa-2xl" style="color: #f45400;"></i>
+                </button>              
             </div>
           </nav>
-          <!-- <div class="title">
+          <div class="title">
             <h3>제목</h3>
-          </div> -->
+          </div>
     </header>
     <main>
       <div class="container text-center">

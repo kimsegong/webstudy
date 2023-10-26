@@ -1,333 +1,114 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 구글 오토산 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- 부트 스트랩 link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+      
+       *{
+            font-family: 'Noto Sans KR', sans-serif;
+            color: black;     
+        }
+        header{
+            background-color: white;
+        }
+        .title h3 {
+          margin-bottom: 30px;
+          text-align: center;
+          padding: 15px;
+          
+        }
+        #top-nav {
+          border-bottom: 1px solid black;
+        }
+        #nav_menu {
+            color: black;
+        }
+        #member_login:hover, #member_sign:hover {
+            background-color: #ff8400;
+        
+       }
+        #member_login, #member_sign {
+            border-color:  #ff8400;
+            color: black;
+        } 
+        .table {
+          margin-top: 10px;
+          
+        }
+        .btn-warning {
+          float: right;
+        }
+        .textbar {
+          width: 80%;
+        }
+
+    </style>
+
 </head>
-<style>
 
-body, nav, ul, li {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Orbit', sans-serif;
-  }
-  a {
-    text-decoration: none;
-  }  
-  #content {
-    text-align: center;
-    border-bottom: 1px solid rgb(255, 140, 0);
-    padding-top: 80px;
-    padding-bottom: 20px;
-  } 
-  table {
-   width: 700px;
-   height: 200px;
-   border-top: 1px solid rgb(255, 140, 0);
-   border-collapse: collapse;
-   padding: 20px;
-   text-align: center;
-
-   }
-   th { 
-   background-color: rgb(255, 140, 0); 
-   border-top: 3px solid rgb(255, 140, 0);
-    
-    }
-   th, td {
-   border-bottom: 1px solid rgb(255, 140, 0);
-   padding: 10px;
-    }
-    
-    .Header {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 900;
-    width: 100%;
-    height: 61px;
-    border-bottom: 1px solid #DBDBDB;
-    box-sizing: border-box;
-    box-shadow: 0 4px 11px rgba(0,0,0,0.1);
-    background-color: #FFFFFF;
-    padding-top: 0px;
-    border-bottom: 1px solid rgb(255, 140, 0);
-}
-  /* header, h1 {
-    font-size: 100%;
- } */
- * {
-    margin: 0;
-    padding: 0;
-}
-body {
-    position: relative;
-    min-width: 320px;
-    margin: 0 auto;
-    font-size: 100%;
-    /* line-height: 100%; */
-    text-size-adjust: 100%;
-    word-break: keep-all;
-}
-.Header__Logo {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    flex-direction: center;
-    margin: 0 25px;
-}
-.Header__LogoIcon {
-    width: 100px;
-    height: 33px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.Header__MenuList {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    flex-direction: row;
-    height: 100%;
-    margin-left: 420px;
-}
-.Header__MenuItem {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    box-sizing: border-box;
-}
-ol, ul, ul li {
-    list-style: none;
-}
-.Header__MenuLink {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    height: 100%;
-}
-.Header__MenuText {
-    position: relative;
-    font-size: 16px;
-    color: rgb(81, 78, 75);
-}
-.Header__MenuText:hover {
-    color: rgb(255, 140, 0);
-}
-.Header__IconButtonList {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    height: 100%;
-    padding-left: 350px; /* 유저아이콘 오른쪽으로 보냈지만 컴퓨터 크기에따라 다를수도 있음 */
-}
-.Header__IconButtonItem {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-    width: 85px;
-    height: 100%;
-    cursor: pointer;
-}
-.UserProfileButton {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    position: relative;
-    margin: 0 6px;
-    overflow: visible;
-}
-.UserProfileButton__HistoryCount {
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -5px;
-    right: -8px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 14px;
-    font-style: normal;
-    color: #FFFFFF;
-    background-color: #ff792a;
-}
-  #center {
-
- } 
-</style>
 <body>
- <div>
-  <header class="Header" data-page="normal">
-    <a href="#" class="Header__logo" onclick="TrackEvent('CLICK_HAEDER_LOGO')">
-      <i class="fa-brands fa-digg"></i>
-    </a>
-    <ul class="Header__MenuList">
-        <li class="Header__MenuItem"><a href="#" class="Header__MenuLink" onclick="TrackEvent('CLICK_HAEDER_LOGO')"><span class="Header__MenuText">랜덤</span></a></li>
-        <li class="Header__MenuItem"><a href="#" class="Header__MenuLink" onclick="TrackEvent('CLICK_HAEDER_LOGO')"><span class="Header__MenuText">맛집</span></a></li>
-        <li class="Header__MenuItem"><a href="#" class="Header__MenuLink" onclick="TrackEvent('CLICK_HAEDER_LOGO')"><span class="Header__MenuText">레시피</span></a></li>
-        <li class="Header__MenuItem"><a href="#" class="Header__MenuLink" onclick="TrackEvent('CLICK_HAEDER_LOGO')"><span class="Header__MenuText">친구야밥먹자</span></a></li>
-        <li class="Header__MenuItem"><a href="#" class="Header__MenuLink" onclick="TrackEvent('CLICK_HAEDER_LOGO')"><span class="Header__MenuText">문의</span></a></li>
-    </ul>
-    <ul class="Header__IconButtonList">
-      <li class="Header__IconButtonItem Header__IconButtonItem--UserRestaurantHistory">
-        <button class="UserProfileButton" onclick="trackEvent('CLICK_PROFILE');">
-          <i class= "fa-solid fa-user" style="background-image: url(&quot;https://mp-seoul-image-production-s3.mangoplate.com/web/resources/fljgy-rm4b8v6vni.png&quot;), url(&quot;https://mp-seoul-image-production-s3.mangoplate.com/web/resources/fljgy-rm4b8v6vni.png&quot;);" ></i>
-          <!-- <i class="UserProfileButton__PersonIcon"></i> -->
-          <span class="UserProfileButton__HistoryCount">0</span>
-        </button>
-      </li>
-    </ul>
-  </header>
-  <!-- <nav class="gnb">
-    <div class="logo">
-      <ul>
-        <img alt="logo" id="logoimage" src="../logo.png" width="70px" height="50px">
-        <div id="user">
-        <a href="#"><i class="fa-solid fa-user"></i></a>
+    <header>
+        <!-- 상단 네비바 -->
+        <nav class="navbar navbar-expand-lg " id="top-nav">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="https://github.com/skal48/Project_Eatingday/blob/dev/main_images/eatingday_main_03.png?raw=true" width="100px" height="39px"></a><!--# main 페이지 연결해. 이미지도 경로 바꿔-->
+              <div class="collapse navbar-collapse position-absolute top-50 start-50 translate-middle" id="navbarSupportedContent">
+                <ul class="nav nav nav-pills justify-content-center gap-4 fs-5 fw-semibold ">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" id="nav_menu">랜덤</a> <!-- 주소 입력해야함-->
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#" id="nav_menu">맛집</a> <!-- 주소 입력해야함-->
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" id="nav_menu">레시피</a> <!-- 주소 입력해야함-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav_menu">친구야밥먹자</a> <!-- 주소 입력해야함-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav_menu">문의</a> <!-- 주소 입력해야함-->
+                    </li>                   
+                  </ul>     
+                </div>
+                <button type="button" class="btn fa-xl"  aria-expanded="false">
+                  <i class="fa-solid fa-circle-user fa-2xl" style="color: #f45400;"></i>
+                </button>              
+            </div>
+          </nav>
+          <div class="title">
+            <h3>제목</h3>
+          </div>
+    </header>
+    <main>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            1 of 3
+          </div>
+          <div class="col-6">
+           
+          </div>
+          <div class="col">
+            3 of 3
+          </div>
         </div>
-        <div id="mid">
-          <li><a href="#">랜덤</a></li>
-          <li><a href="#">맛집</a></li>
-          <li><a href="#">레시피</a></li>
-          <li><a href="#">친구야밥먹자</a></li>
-          <li><a href="#">문의</a></li>
-        </div>
-    </ul>
-  </div>
-  </nav> -->
-  <div id="content">
-  <h2>레시피</h2>
-  </div>
-  <div id="list">
-  <form>
-    <span class="right"> 
-        <span class="grey" id="strong"></span>
-        <select>
-        <option value="제목"; name="제목"; >제목</option>
-        <option value="글쓴이";name="글쓴이";>글쓴이</option>
-        </select>
-    <input type="text"> <input type="button" name="검색" class="gradient" value="검색" >
-    </span>
-    </form><br>
-    <span> ▷ 총 3개의 게시물이 있습니다. </span>
-    <br>
-    <table style="border:1px solid rgb(255, 140, 0);margin-left:auto;margin-right:auto;">
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>글쓴이</th>
-            <th>일시</th>
-            <th>조회수</th>
-        </tr>
-        <tr>
-            <td class="center">1</td>
-            <td class="left">게시글 1 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-        <tr>
-            <td class="center">2</td>
-            <td class="left">게시글 2 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-        <tr>
-            <td class="center">3</td>
-            <td class="left">게시글 3 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-        <tr>
-            <td class="center">4</td>
-            <td class="left">게시글 4 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-        <tr>
-            <td class="center">5</td>
-            <td class="left">게시글 5 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-        <tr>
-            <td class="center">6</td>
-            <td class="left">게시글 6 입니다.</td>
-            <td class="center">콩맘</td>
-            <td class="center">2022-05-18</td>
-            <td class="center">15</td>   
-        </tr>
-    </table>
-    </br>
+
+
+      
+    </main>
     
-    <div class="center1" >
-        <a href  = "#">◀ 이전</a> 
-        <a href  = "#">1</a>  
-        <a href  = "#">다음 ▶</a>
-    </div>
-    
-    <span class="right1">
-    <input type="button" value="목록" class="greylist">
-    <input type="button" value="글쓰기"  class="gradient">
-    </span>
-  </div>
-
-
-
-
-  
-
-
-  
+    <!-- 부트스트랩에서 제공하는 jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
